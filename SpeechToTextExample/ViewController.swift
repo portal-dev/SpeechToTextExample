@@ -79,7 +79,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         
     }
     
-    //Fun gifs to play!
+    
     func openDoor()
     {
         print("Opening the door")

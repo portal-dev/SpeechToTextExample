@@ -83,6 +83,7 @@ class SpeechService: UIViewController, SFSpeechRecognizerDelegate
     //string in another view controller.
     func updateUIWithTranscription(_ transcription: SFTranscription) {
         let text = transcription.formattedString
+        actionCase(str: text)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "micOutput"), object: nil, userInfo: ["output" : text])
         if let lastSegment = transcription.segments.last,
             lastSegment.duration > mostRecentlyProcessedSegmentDuration {
@@ -91,5 +92,20 @@ class SpeechService: UIViewController, SFSpeechRecognizerDelegate
         }
     }
     
+    func actionCase(str: String)
+    {
+        switch str{
+        case "Open Door":
+            print("Now opening door")
+        case "Open Sesame":
+            print("Opening la door")
+        case "Open Make School Front Door":
+            print("Opening make school front door")
+        case "Search":
+            print("Searching!")
+        default:
+            print("Sorry I didn't catch that :(")
+        }
+    }
     
 }
